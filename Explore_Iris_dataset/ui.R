@@ -7,6 +7,10 @@ titlePanel("Measurments of sepal and petal for Iris species"),
 # Sidebar panel for inputs ----
                 sidebarPanel(
 # Input: Select the part of the flower you are interested in to get measurements ----
+h3("Select your inputs:"),
+p("Please select part of a flower (sepal or petal) you are interested in to get measurments:"),
+p("Please filter to specific length/width if you want so, only for specific values to be displayed"),
+
 selectInput("variable", "Part:", 
             c("Sepal" = "Sepal",
               "Petal" = "Petal")),
@@ -22,7 +26,10 @@ sliderInput(inputId = "width", label = "width of a flower part",
                 
 mainPanel(
     # Output: Plot of the length vs width for requested flower part ----
-    plotlyOutput("IrisPlot")
+    h3("Interpretation of the output"),
+    p("The output is a scatter plot showing length and width relationship for a selected part of a flower (sepal or petal) by different Iris species"),
+    p("Measurments are filtered to the ones selected in a slider"),
+        plotlyOutput("IrisPlot")
 )
 )
 )
